@@ -46,8 +46,7 @@
         return total
     })
 
-    const subTotalFruits= []
-
+    // función que multiplica el precio por el stock
     const subTotal = minStockIncrease.reduce((subTotal, fruit) => {
         const multStockForPrice = fruit.stock * fruit.price
         subTotal[fruit.name] = multStockForPrice
