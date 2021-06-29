@@ -6,17 +6,21 @@ const fruits = [
     { name: "Plátano", price: 200, stock: 5 },
     { name: "Mango", price: 500, stock: 1 },
     { name: "Mandarina", price: 150, stock: 2 },
-    
+    { name: "Chirimoya", price: 500, stock: 20 },
+    { name: "Clementinas", price: 50, stock: 50 },
+    { name: "Piña", price: 1000, stock: 1 }
 ];
 
 //Lista las frutas disponibles con stock mayor o igual a 2
 document.write('<h4>Frutas disponibles:</h4>')  
+
 const fruitsWithStock = fruits.filter(fruit => fruit.stock >= 2)
 .map(fruit => `<li style="color:#2d572c">${fruit.name} - Stock:${fruit.stock}  - Precio:$${fruit.price}`)
 document.write('<ul>' + fruitsWithStock.join('\n') + '</ul>')
     
 //Lista las frutas disponibles con stock menor a 2 y su valor incrementado en un 30%   
 document.write('<h4>Frutas con stock mínimo:</h4>')
+
 const minStockIncrease = fruits.map((fruit) => {
     if (fruit.name && fruit.stock === 2) return fruit
     return{
@@ -26,6 +30,7 @@ const minStockIncrease = fruits.map((fruit) => {
 })
 //Lista las frutas con stock menor a 2
 const minStock = minStockIncrease.filter(fruit => fruit.stock < 2).map(fruit => `<li style="color:#FF0000">${fruit.name} - Stock:${fruit.stock}  - Precio:$${fruit.price}`)
+
 document.write('<ul>' + minStock.join('\n') + '</ul>')
 
 //Indica el total de los productos en existencia por fruta y total de todos los productos
@@ -51,6 +56,22 @@ const total = newArrFruits.map(fruit => fruit.subTotalPerFruit).reduce((accum, n
 })
 
 const showTotalPerProducts = document.write(`<h4>Total de stock disponible:  $ ${total}</h4>`)
+
+console.log('App Familia Santalaolla')
+console.log('Frutas disponibles')
+console.log()
+
+
+console.log('Frutas con stock mínimo')
+console.log()
+
+console.log('Valor de Stock disponible por fruta')
+console.log(newArrFruits)
+
+console.log('Total de Stock disponible')
+console.log(total)
+
+
 
 
 
