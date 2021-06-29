@@ -10,4 +10,5 @@ Includes JavaScript Array Methods like:
 .join()
 and .reduce()
 
+For the moment is only running in browser.
 
