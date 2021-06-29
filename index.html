@@ -40,20 +40,33 @@
     //Indica el total de los productos en existencia por fruta y total de todos los productos
     document.write('<p>Valor de Stock disponible:</p>')
 
-    console.log(minStockIncrease)
-    const totalPerFruit = minStockIncrease.forEach(fruit => {
-        const total = fruit.price * fruit.stock
-        return total
+    const newArrFruits = minStockIncrease.map((fruit) => {
+        return {
+            name: fruit.name,
+            price: fruit.price,
+            stock: fruit.stock,
+            subTotalPerFruit: (fruit.price * fruit.stock)
+        }
     })
 
-    // función que multiplica el precio por el stock
-    const subTotal = minStockIncrease.reduce((subTotal, fruit) => {
-        const multStockForPrice = fruit.stock * fruit.price
-        subTotal[fruit.name] = multStockForPrice
-        return subTotal           
+    
+    console.log(newArrFruits)
+
+    const total = newArrFruits.map(fruit => fruit.subTotalPerFruit).reduce((accum, num) => { 
+        const sum = accum + num 
+        return sum
     })
-           
-    console.log(subTotal)
+
+    
+    console.log(total)
+
+/*     const getTotal = newArrFruits.reducer((total, fruit) => {
+        total[fruit.name] = (total[fruit.subTotal] || 0) + fruit.subTotal
+        return total
+    }, {})
+    console.log(getTotal) */
+
+
 
 </script>
 <body>
